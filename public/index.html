@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Created by Irvin Luna -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irvin Luna - Multiplayer Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game">
+        <h1>Multiplayer Tic-Tac-Toe</h1>
+        <p class="instructions">
+            Two players compete in real time. Additional users can watch as spectators.
+        </p>
+
+        <!-- Login section: the server assigns X, O, or spectator. -->
+        <section id="login" aria-label="Join the game">
+            <input id="nameInput" type="text" placeholder="Your name"
+                   autocomplete="name" maxlength="30">
+            <input id="passwordInput" type="password" placeholder="Game password"
+                   autocomplete="current-password">
+            <button id="joinBtn" type="button">Join Game</button>
+        </section>
+
+        <p id="connection" aria-live="polite">Connecting to server...</p>
+        <p id="role" aria-live="polite">Not joined yet</p>
+        <p id="status" aria-live="polite">Waiting for game state...</p>
+
+        <!-- The 600 by 600 canvas follows the Lecture 7 example. -->
+        <canvas id="board" width="600" height="600"
+                aria-label="Tic-Tac-Toe game board"></canvas>
+
+        <button id="resetBtn" type="button">Reset Game</button>
+        <p class="note">
+            Players: X goes first. Spectators can watch but cannot place pieces.
+        </p>
+    </main>
+
+    <!-- Client-side JavaScript handles clicks and WebSocket messages. -->
+    <script src="client.js"></script>
+</body>
+</html>
