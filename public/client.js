@@ -16,7 +16,8 @@ const passwordInput = document.getElementById("passwordInput");
 const CELL_SIZE = 200;
 
 // Create a permanent WebSocket connection to the Node.js server.
-const ws = new WebSocket(`ws://${window.location.host}`);
+const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+const ws = new WebSocket(`${wsProtocol}//${window.location.host}`);
 
 // The browser displays the state received from the server.
 // The server, not the browser, is the source of truth.
